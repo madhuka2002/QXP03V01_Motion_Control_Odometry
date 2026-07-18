@@ -152,7 +152,27 @@ def rotate(angle_degrees, speed=TURN_SPEED):
             return
 
 
-def drive_square(side_length=0.30):
+def forward(distance):
+    move_distance(distance)
+    
+    
+def backward(distance):
+    move_distance(-distance)
+    
+
+def turn_left():
+    rotate(90)
+    
+    
+def turn_right():
+    rotate(-90)
+    
+    
+def turn_around():
+    rotate(180)
+    
+    
+def drive_squareM(side_length=0.30):
     for side in range(4):
         print(f"Side {side + 1}")
 
@@ -166,18 +186,39 @@ def drive_square(side_length=0.30):
     print("Square completed.")
 
 
-
+def drive_triangle(side=0.30):
+    for _ in range(3):
+        forward(side)
+        rotate(-120)
 robot.step(TIME_STEP)
 
 
+def drive_square(side=0.30):
+    for _ in range(4):
+        forward(side)
+        turn_right()
+        
+
+def drive_pentagon(side=0.30):
+    for _ in range(5):
+        forward(side)
+        rotate(-72)
+        
+         
+def drive_hexagon(side=0.30):
+    for _ in range(6):
+        forward(side)
+        rotate(-60)       
 previous_left_encoder = left_encoder.getValue()
 previous_right_encoder = right_encoder.getValue()
 
-move_distance(1.0)
+drive_triangle()
 
-rotate(90)
+drive_square()
 
-move_distance(1.0)
+drive_pentagon()
+
+drive_hexagon()
 
 print_pose()
 
