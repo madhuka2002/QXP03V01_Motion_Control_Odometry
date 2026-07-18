@@ -9,13 +9,15 @@ WorldInfo {
 }
 Viewpoint {
   orientation -0.5773502691896257 0.5773502691896257 0.5773502691896257 2.0944
-  position -2.110395314124072e-05 -2.110401281541187e-05 2.5365240165642176
+  position -9.6730697056592e-06 -9.673097057521353e-06 6.5790900429357535
 }
 TexturedBackground {
 }
 TexturedBackgroundLight {
 }
 RectangleArena {
+  floorSize 2.5 2.5
 }
 E-puck {
+  controller "motion_controller"
 }
