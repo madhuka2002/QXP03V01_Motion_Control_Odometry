@@ -208,18 +208,43 @@ def drive_pentagon(side=0.30):
 def drive_hexagon(side=0.30):
     for _ in range(6):
         forward(side)
-        rotate(-60)       
+        rotate(-60)
+
+
+def calibration_test():
+
+    print("===== Motion Calibration =====")
+
+    distances = [0.25, 0.50, 1.00]
+
+    for d in distances:
+
+        print(f"\nTarget : {d:.2f} m")
+
+        forward(d)
+
+        print_pose()
+
+        backward(d)
+
+        print_pose()
+
+    print("Calibration Finished")
+    
+
+def rotation_test():
+    angles = [90, 180, 270, 360]
+
+    for a in angles:
+        print(f"\nRotate {a}")
+        rotate(a)
+        print_pose()
+        
+                                   
 previous_left_encoder = left_encoder.getValue()
 previous_right_encoder = right_encoder.getValue()
 
-drive_triangle()
-
-drive_square()
-
-drive_pentagon()
-
-drive_hexagon()
-
-print_pose()
+calibration_test()
+# rotation_test()
 
 print("Motion and odometry test completed.")
